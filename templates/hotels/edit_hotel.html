@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+    <h1>Editing the hotel</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p>
+            <label for="name">Name of the hotel</label>
+        </p>
+        {{form.name}}
+        <p>
+            <label for="address">Hotel address</label>
+        </p>
+        {{form.address}}
+        <p>
+            <label for="star">Hotel category</label>
+        </p>
+        {{form.star}}
+        <p>
+            <label for="num_rooms">Number of rooms</label>
+        </p>
+        {{form.num_rooms}}
+        <p>
+            <label for="description">Description of the hotel</label>
+        </p>
+        {{form.description}}
+        <p>
+            <label for="services">Hotel services</label>
+        </p>
+        {{form.services}}
+        <p>
+            <label for="images">Images</label>
+        </p>
+        {{form.images}}
+
+        {% for img in hotel_att %}
+        <div>
+            <input type="checkbox" value="{{img.pk}}" name="attachments">
+            <img src="{{img.image.url}}" width="400px">
+        </div>
+        {% endfor %}
+        <p>
+            <button type="submit">Save Hotel</button>
+        </p>
+    </form>
+</div>
+{% endblock  %}
