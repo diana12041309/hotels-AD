@@ -17,7 +17,6 @@ class Hotel(models.Model):
     num_rooms = models.IntegerField(verbose_name='number of rooms')
     services = models.TextField()
     time_stamp = models.DateTimeField(default=timezone.now,)
-    #photos
     #reviews
 
     def __str__(self):
@@ -34,7 +33,7 @@ class HotelAttachment(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f'{self.image}: {self.hotel.name}'
+        return f'{self.image}'
     
 
 
