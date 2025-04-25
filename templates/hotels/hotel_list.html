@@ -1,15 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <p>
-        <a href="{% url 'add-hotel' %}">
-            <button>New hotel</button>
-        </a>
-    </p>
     {% for hotel in hotels %}
         <a href="{% url 'details-page' hid=hotel.pk %}">
             <div style = "border: 1px solid black; margin-bottom: 10px;">
-                <img src="{{hotel.images.0.image.url}}" width="400px">
+                <img src="{{hotel.images.0.image.url}}" width="300px">
                 <p>{{hotel.name}}</p>
                 <p>{{hotel.address}}</p>
                 <p>{{hotel.star}}</p>

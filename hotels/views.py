@@ -1,6 +1,5 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from .models import Hotel, HotelAttachment
-from .form import Hotelform
 
 # Create your views here.
 
@@ -15,41 +14,3 @@ def hotelDetails(request, hid):
     hotel = Hotel.objects.get(pk = hid)
     att = HotelAttachment.objects.filter(hotel_id = hid)
     return render(request, 'hotels/details_page.html', {'hotel': hotel, 'images': att})
-
-def addHotel(request):
-    if request.method != 'POST':
-        form = Hotelform()
-    else: 
-        form = Hotelform(request.POST)
-        att = request.FILES.getlist('images')
-        if form.is_valid():
-            hotel = form.save(commit=False)
-            hotel.save()
-            for img in att:
-                HotelAttachment.objects.create(hotel_id = hotel.pk, image=img)
-        return redirect(to='details-page', hid=hotel.pk)
-    return render(request, 'hotels/new_hotel.html', {'form': form}) 
-
-def editHotel(request, hid):
-    hotel = Hotel.objects.get(pk=hid)
-    hotel_att = HotelAttachment.objects.filter(hotel_id=hid)
-    if request.method != 'POST':
-        form = Hotelform(instance=hotel)
-    else: 
-        form = Hotelform(request.POST, instance=hotel)
-        if form.is_valid():
-            hotel = form.save(commit=False)
-            att = request.FILES.getlist('images')
-            for img in att:
-                HotelAttachment.objects.create(hotel_id = hotel.pk, image=img)
-            chosen = request.POST.getlist('attachments')
-            for img_id in chosen:
-                HotelAttachment.objects.get(pk=int(img_id)).delete()
-            hotel.save()
-        return redirect(to='details-page', hid=hotel.pk)
-    return render(request, 'hotels/edit_hotel.html', {'form': form, 'hotel_att':hotel_att}) 
-
-def deleteHotel(request, hid):
-    hotel = Hotel.objects.get(pk=hid)
-    hotel.delete()
-    return redirect(to='hotel-list')
