@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for image in images %}
+        <img src="{{image.image.url}}" width="300px">
+    {% endfor %}
+    <p>{{hotel.name}}</p>
+    <p>{{hotel.address}}</p>
+    <p>{{hotel.star}}</p>
+    <p>{{hotel.description}}</p>
+    <p>{{hotel.services}}</p>
+{% endblock  %}
