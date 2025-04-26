@@ -16,7 +16,7 @@ class Hotel(models.Model):
     star = models.IntegerField(choices = Star, default=0, verbose_name='Category')
     num_rooms = models.IntegerField(verbose_name='number of rooms')
     services = models.TextField()
-    time_stamp = models.DateTimeField(default=timezone.now,)
+    time_stamp = models.DateTimeField(default=timezone.now)
     #reviews
 
     def __str__(self):
