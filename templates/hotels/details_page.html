@@ -2,11 +2,23 @@
 
 {% block content %}
     {% for image in images %}
-        <img src="{{image.image.url}}" width="300px">
+        <img src="{{image.image.url}}" width="400px">
     {% endfor %}
     <p>{{hotel.name}}</p>
     <p>{{hotel.address}}</p>
     <p>{{hotel.star}}</p>
     <p>{{hotel.description}}</p>
     <p>{{hotel.services}}</p>
+    {% if user.is_authenticated and user == post.author %}
+    <p>
+        <a href="{% url 'edit-hotel' hid=hotel.pk %}">
+            <button>Edit hotel</button>
+        </a>
+    </p>
+    <p>
+        <a href="{% url 'delete-hotel' hid=hotel.pk %}">
+            <button>Delete hotel</button>
+        </a>
+    </p>
+    {% endif %}
 {% endblock  %}

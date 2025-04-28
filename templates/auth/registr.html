@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+    <h2>Registration</h2>
+    {% if form.errors %}
+    <div class="form-errors">
+        {{ form.errors }}
+    </div>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <p>
+            <label for="first_name"></label>
+        </p>
+        {{form.first_name}}
+        <p>
+            <label for="last_name"></label>
+        </p>
+        {{form.last_name}}
+        <p>
+            <label for="email"></label>
+        </p>
+        {{form.email}}
+        <p>
+            <label for="phone"></label>
+        </p>
+        {{form.phone}}
+        <p>
+            <label for="password1"></label>
+        </p>
+        {{form.password1}}
+        <p>
+            <label for="password2"></label>
+        </p>
+        {{form.password2}}
+        <p>
+            <button type="submit">Save</button>
+        </p>
+    </form>
+</div>
+{% endblock %}

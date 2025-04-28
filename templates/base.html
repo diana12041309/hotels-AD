@@ -2,17 +2,24 @@
 <!DOCTYPE html>
 <html>
     <head>
-            <title>About us | Hotel reservations</title>
+            <title> Hotel booking </title>
             <link rel="stylesheet" href="{% static 'style.css' %}">
             <script src="{% static 'scrypt.js' %}"></script>
     </head>
     <body>
         <header>
             <div class="header-container">
-                <h1>HotelEasy</h1>
+                <h1>Hotel booking</h1>
                 <div class="auth-buttons">
-                    <a href="register.html" class="btn">Регистрация</a>
-                    <a href="login.html" class="btn">Вход</a>
+                    {% if user.is_authenticated %}
+                    <p>
+                        {{user.first_name}} {{user.last_name}}
+                    </p>
+                    <a href="{% url 'logout' %}" class="btn">Logout</a>
+                    {% else %}
+                    <a href="{% url 'registr' %}" class="btn">Регистрация</a>
+                    <a href="{% url 'login' %}" class="btn">Вход</a>
+                    {% endif %}
                 </div>
             </div>
         </header>

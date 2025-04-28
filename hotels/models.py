@@ -1,22 +1,24 @@
 from django.db import models
 from django.utils import timezone
+from user.models import User
 
 # Create your models here.
 
 class Hotel(models.Model):
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     description = models.TextField()
     address = models.CharField(max_length=255)
     class Star(models.IntegerChoices):
-        Tourist = 1
-        Standart = 2
-        Comfort = 3
-        First_Class = 4
-        Luxury = 5
-    star = models.IntegerField(choices = Star, default=0)
+        Tourist_1_star = 1
+        Standart_2_star = 2
+        Comfort_3_star = 3
+        First_Class_4_star = 4
+        Luxury_5_star = 5
+    star = models.IntegerField(choices = Star, default=0, verbose_name='Category')
     num_rooms = models.IntegerField(verbose_name='number of rooms')
     services = models.TextField()
-    time_stamp = models.DateTimeField(default=timezone.now,)
+    time_stamp = models.DateTimeField(default=timezone.now)
     #reviews
 
     def __str__(self):

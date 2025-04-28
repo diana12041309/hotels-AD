@@ -14,7 +14,7 @@ class CustomHotelAdmin(admin.ModelAdmin):
     )
     list_display = ('name', 'address', 'star', 'num_rooms')
     search_fields = ('name', 'address')
-    ordering = ('-time_stamp', )
+    ordering = ('name', )
     def get_fieldsets(self, request, obj = None):
         if obj:
             return self.fieldsets

@@ -19,10 +19,17 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from user.views import activate
+from user.views import registration, userLogin, userLogout
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('hotels.urls'))
+    path('', include('hotels.urls')),
+    path('auth/', include('user.urls')),
+    path('activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/', activate, name='activate'),
+    path('registration/', registration, name='registr'),
+    path('login/', userLogin, name='login'),
+    path('logout/', userLogout, name='logout'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
