@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block title %}
+Message | HotelBooking
+{% endblock title %}
+
+{% block content %}
+<div class="hotel-description">
+    <h3>{% trans 'An account activation message has been sent to your email' %} ({{email}})</h3>
+</div>
+{% endblock content %}

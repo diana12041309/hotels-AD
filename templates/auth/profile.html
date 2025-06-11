@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block title %}
+Profile | HotelBooking
+{% endblock title %}
+
+{% block content %}
+<div class="profile-container">
+    <h2 class="section-title">{% trans 'Personal details' %}</h2>
+    <div class="profile-card">
+        <div class="profile-field">
+            <span class="label">{% trans 'First name' %}</span>
+            <span class="value">{{ user.first_name }}</span>
+        </div>
+        <div class="profile-field">
+            <span class="label">{% trans 'Last name' %}</span>
+            <span class="value">{{ user.last_name }}</span>
+        </div>
+        <div class="profile-field">
+            <span class="label">{% trans 'Email' %}</span>
+            <span class="value">{{ user.email }}</span>
+        </div>
+        <div class="profile-field">
+            <span class="label">{% trans 'Phone number' %}</span>
+            <span class="value">{{ user.phone }}</span>
+        </div>
+        <div class="profile-field">
+            <span class="label">{% trans 'Date of birth' %}</span>
+            <span class="value">{{ user.date_of_birth }}</span>
+        </div>
+        <div class="profile-field">
+            <span class="label">{% trans 'Gender' %}</span>
+            <span class="value">{{ user.get_gender }}</span>
+        </div>
+        <div class="profile-actions">
+            <a href="{% url 'update-profile' uid=user.pk %}" class="btn-edit">{% trans 'Edit' %}</a>
+            <a href="{% url 'delete-profile' uid=user.pk %}" class="btn-delete">{% trans 'Delete' %}</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

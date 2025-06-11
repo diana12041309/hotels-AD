@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load hotel_filters static i18n %}
+
+{% block title %}
+Hotel list | HotelBooking
+{% endblock title %}
+
+{% block content %}
+    <h1>{% trans 'Our hotels' %}</h1>
+
+    {% if user.is_authenticated and user.is_staff %} 
+    <div class="admin-actions">
+        <a href="{% url 'add-hotel' %}" class="admin-btn">{% trans 'New hotel' %}</a>
+    </div>
+    {% endif %}
+    <div class="hotels-grid">
+        {% for hotel in hotels %}
+                <div class="hotel-card">
+                    <img src="{{hotel.images.0.image.url}}" alt="{{hotel.name}}">
+                    <div class="card-content">
+                        <h3>{{hotel.name}}</h3>
+                        <h3>{% for i in "12345" %}
+                        {% if forloop.counter <= hotel.star %}
+                            ★
+                        {% endif %}
+                        {% endfor %}</h3>
+                        <p>{{hotel.description|cut_after_dot}}</p>
+                        <a href="{% url 'details-page' hid=hotel.pk %}" class="btn">{% trans 'More info' %}</a>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock  %}

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block title %}
+Edit profile | HotelBooking
+{% endblock title %}
+
+{% block content %}
+<div class="profile-section">
+    <h2 class="profile-title">{% trans 'Profile' %}</h2>
+    <div class="profile-card">
+        {% if form.errors %}
+            <ul>
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <li>{{ field.label }}: {{ error }}</li>
+                    {% endfor %}
+                {% endfor %}
+                {% for error in form.non_field_errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <form method="post" class="profile-form">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="firstName">{% trans 'First name' %}</label>
+                    {{form.first_name}}
+                </div>
+                <div class="form-group">
+                    <label for="lastName">{% trans 'Last name' %}</label>
+                    {{form.last_name}}
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="phone">{% trans 'Phone number' %}</label>
+                    {{form.phone}}
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="birthdate">{% trans 'Date of birth' %}</label>
+                    {{form.date_of_birth}}
+                </div>
+                <div class="form-group">
+                    <label for="gender">{% trans 'Gender' %}</label>
+                    {{form.gender}}
+                </div>
+            </div>
+            <button type="submit" class="btn">{% trans 'Save' %}</button>
+        </form>
+    </div>
+</div>
+{% endblock content %}

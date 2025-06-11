@@ -1,0 +1,469 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-12 01:36+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: .\advenv\Lib\site-packages\django\views\templates\default_urlconf.html:7
+#: .\advenv\Lib\site-packages\django\views\templates\default_urlconf.html:204
+msgid "The install worked successfully! Congratulations!"
+msgstr ""
+
+#: .\advenv\Lib\site-packages\django\views\templates\default_urlconf.html:206
+#, python-format
+msgid ""
+"View <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
+"target=\"_blank\" rel=\"noopener\">release notes</a> for Django %(version)s"
+msgstr ""
+
+#: .\advenv\Lib\site-packages\django\views\templates\default_urlconf.html:208
+#, python-format
+msgid ""
+"You are seeing this page because <a href=\"https://docs.djangoproject.com/en/"
+"%(version)s/ref/settings/#debug\" target=\"_blank\" "
+"rel=\"noopener\">DEBUG=True</a> is in your settings file and you have not "
+"configured any URLs."
+msgstr ""
+
+#: .\advenv\Lib\site-packages\django\views\templates\default_urlconf.html:217
+msgid "Django Documentation"
+msgstr ""
+
+#: .\advenv\Lib\site-packages\django\views\templates\default_urlconf.html:218
+msgid "Topics, references, &amp; how-to’s"
+msgstr ""
+
+#: .\advenv\Lib\site-packages\django\views\templates\default_urlconf.html:226
+msgid "Tutorial: A Polling App"
+msgstr ""
+
+#: .\advenv\Lib\site-packages\django\views\templates\default_urlconf.html:227
+msgid "Get started with Django"
+msgstr ""
+
+#: .\advenv\Lib\site-packages\django\views\templates\default_urlconf.html:235
+msgid "Django Community"
+msgstr ""
+
+#: .\advenv\Lib\site-packages\django\views\templates\default_urlconf.html:236
+msgid "Connect, get help, or contribute"
+msgstr ""
+
+#: .\advenv\Lib\site-packages\django\views\templates\directory_index.html:8
+#: .\advenv\Lib\site-packages\django\views\templates\directory_index.html:11
+#, python-format
+msgid "Index of %(directory)s"
+msgstr ""
+
+#: .\templates\auth\acc_activate_email.html:4
+msgid "Activate Your Account"
+msgstr "Тіркелгіңізді белсендіріңіз"
+
+#: .\templates\auth\acc_activate_email.html:8
+msgid "Welcome"
+msgstr "Қош келдіңіз"
+
+#: .\templates\auth\acc_activate_email.html:10
+msgid "Thank you for registering on"
+msgstr "Тіркелгеніңіз үшін рахмет"
+
+#: .\templates\auth\acc_activate_email.html:13
+msgid "Please click the button below to activate your account:"
+msgstr "Тіркелгіңізді белсендіру үшін төмендегі түймені басыңыз:"
+
+#: .\templates\auth\acc_activate_email.html:16
+msgid "Activate Account"
+msgstr "Тіркелгіні белсендіріңіз"
+
+#: .\templates\auth\acc_activate_email.html:19
+msgid "If you didn"
+msgstr "Егер сіз мұны жасамаған болсаңыз"
+
+#: .\templates\auth\fail_activate.html:10
+msgid "The account activation time has expired. Register again."
+msgstr "Тіркелгіні белсендіру уақыты аяқталды. Қайта тіркеліңіз."
+
+#: .\templates\auth\login.html:10 .\templates\auth\login.html:21
+msgid "Login"
+msgstr "Кіру"
+
+#: .\templates\auth\login.html:24
+msgid "No account? Register"
+msgstr "Тіркелгі жоқ па? Тіркелу"
+
+#: .\templates\auth\profile.html:10
+msgid "Personal details"
+msgstr "Жеке мәліметтер"
+
+#: .\templates\auth\profile.html:13 .\templates\auth\update_profile.html:28
+msgid "First name"
+msgstr "Аты"
+
+#: .\templates\auth\profile.html:17 .\templates\auth\update_profile.html:32
+msgid "Last name"
+msgstr "Тегі"
+
+#: .\templates\auth\profile.html:21 .\templates\base.html:75
+msgid "Email"
+msgstr "Электрондық пошта"
+
+#: .\templates\auth\profile.html:25 .\templates\auth\update_profile.html:38
+msgid "Phone number"
+msgstr "Телефон нөмірі"
+
+#: .\templates\auth\profile.html:29 .\templates\auth\update_profile.html:44
+msgid "Date of birth"
+msgstr "Туған күні"
+
+#: .\templates\auth\profile.html:33 .\templates\auth\update_profile.html:48
+msgid "Gender"
+msgstr "Жынысы"
+
+#: .\templates\auth\profile.html:37 .\templates\hotels\booking_details.html:43
+#: .\templates\hotels\details_page.html:95
+#: .\templates\hotels\room_details.html:40
+msgid "Edit"
+msgstr "Өзгерту"
+
+#: .\templates\auth\profile.html:38 .\templates\hotels\booking_details.html:46
+#: .\templates\hotels\details_page.html:96
+#: .\templates\hotels\room_details.html:43
+msgid "Delete"
+msgstr "Жою"
+
+#: .\templates\auth\registr.html:15
+msgid "Registration"
+msgstr "Тіркелу"
+
+#: .\templates\auth\registr.html:28 .\templates\auth\update_profile.html:52
+#: .\templates\hotels\edit_booking.html:22
+#: .\templates\hotels\edit_hotel.html:65 .\templates\hotels\edit_room.html:62
+#: .\templates\hotels\new_booking.html:22 .\templates\hotels\new_hotel.html:32
+#: .\templates\hotels\new_room.html:32
+msgid "Save"
+msgstr "Сақтау"
+
+#: .\templates\auth\registr_email_message.html:10
+msgid "An account activation message has been sent to your email"
+msgstr "Тіркелгіні белсендіру туралы хабарлама электрондық поштаңызға жіберілді"
+
+#: .\templates\auth\success_activate.html:10
+msgid "Congratulations on account activation!"
+msgstr "Тіркелгіңіз белсендірілді!"
+
+#: .\templates\auth\update_profile.html:10
+msgid "Profile"
+msgstr "Профиль"
+
+#: .\templates\base.html:46
+msgid "Sign out"
+msgstr "Шығу"
+
+#: .\templates\base.html:49
+msgid "Register"
+msgstr "Тіркелу"
+
+#: .\templates\base.html:50
+msgid "Sign in"
+msgstr "Кіру"
+
+#: .\templates\base.html:56
+msgid "Main"
+msgstr "Басты бет"
+
+#: .\templates\base.html:57
+msgid "Hotels"
+msgstr "Қонақүйлер"
+
+#: .\templates\base.html:59
+msgid "Booking"
+msgstr "Брондау"
+
+#: .\templates\base.html:70
+msgid "About us"
+msgstr "Біз туралы"
+
+#: .\templates\base.html:71
+msgid ""
+"HotelBooking is an easy way to book the best hotels anywhere in the world."
+msgstr "HotelBooking — әлемдегі ең жақсы қонақүйлерді оңай брондау әдісі."
+
+#: .\templates\base.html:74
+msgid "Contacts"
+msgstr "Байланыстар"
+
+#: .\templates\base.html:76
+msgid "Phone Number"
+msgstr "Телефон нөмірі"
+
+#: .\templates\base.html:80
+msgid "All rights reserved."
+msgstr "Барлық құқықтар қорғалған."
+
+#: .\templates\hotels\booking_details.html:11
+msgid "Booking Details"
+msgstr "Брондау мәліметтері"
+
+#: .\templates\hotels\booking_details.html:15
+msgid "Hotel:"
+msgstr "Қонақүй:"
+
+#: .\templates\hotels\booking_details.html:19
+#: .\templates\hotels\booking_list.html:24
+msgid "Check-in:"
+msgstr "Кіру күні:"
+
+#: .\templates\hotels\booking_details.html:23
+msgid "Room Type:"
+msgstr "Бөлме түрі:"
+
+#: .\templates\hotels\booking_details.html:27
+#: .\templates\hotels\booking_list.html:28
+msgid "Check-out:"
+msgstr "Шығу күні:"
+
+#: .\templates\hotels\booking_details.html:31
+msgid "Guests:"
+msgstr "Қонақтар саны:"
+
+#: .\templates\hotels\booking_details.html:35
+#: .\templates\hotels\booking_list.html:34
+msgid "Booking Date:"
+msgstr "Брондау күні:"
+
+#: .\templates\hotels\booking_list.html:10
+msgid "Your Bookings"
+msgstr "Сіздің брондауларыңыз"
+
+#: .\templates\hotels\booking_list.html:19
+msgid "Confirmed"
+msgstr "Расталған"
+
+#: .\templates\hotels\booking_list.html:35
+msgid "Room:"
+msgstr "Бөлме:"
+
+#: .\templates\hotels\booking_list.html:43
+msgid "You don't have any bookings yet."
+msgstr "Сізде әлі брондаулар жоқ."
+
+#: .\templates\hotels\details_page.html:39
+msgid "Facilities of"
+msgstr "Мына қонақүйдің мүмкіндіктері:"
+
+#: .\templates\hotels\details_page.html:48
+msgid "Available Rooms"
+msgstr "Қолжетімді бөлмелер"
+
+#: .\templates\hotels\details_page.html:53
+msgid "Room Type"
+msgstr "Бөлме түрі"
+
+#: .\templates\hotels\details_page.html:54
+#: .\templates\hotels\room_details.html:20
+msgid "Capacity"
+msgstr "Сыйымдылығы"
+
+#: .\templates\hotels\details_page.html:55
+#: .\templates\hotels\room_details.html:21
+msgid "Description"
+msgstr "Сипаттама"
+
+#: .\templates\hotels\details_page.html:56
+msgid "Price per Night"
+msgstr "Түнеу бағасы"
+
+#: .\templates\hotels\details_page.html:57
+msgid "Status"
+msgstr "Күйі"
+
+#: .\templates\hotels\details_page.html:68
+msgid "guests"
+msgstr "қонақтар"
+
+#: .\templates\hotels\details_page.html:73
+msgid "Available"
+msgstr "Қолжетімді"
+
+#: .\templates\hotels\details_page.html:75
+msgid "Not available"
+msgstr "Қолжетімсіз"
+
+#: .\templates\hotels\details_page.html:83
+msgid "No available rooms at the moment."
+msgstr "Қазір қолжетімді бөлмелер жоқ."
+
+#: .\templates\hotels\details_page.html:88
+msgid "Add room"
+msgstr "Бөлме қосу"
+
+#: .\templates\hotels\details_page.html:102
+msgid "Guest Reviews"
+msgstr "Қонақтардың пікірлері"
+
+#: .\templates\hotels\details_page.html:104
+msgid "Write a review"
+msgstr "Пікір қалдыру"
+
+#: .\templates\hotels\edit_booking.html:10
+msgid "Edit booking information"
+msgstr "Брондау ақпаратын өңдеу"
+
+#: .\templates\hotels\edit_hotel.html:10
+msgid "Edit Hotel"
+msgstr "Қонақүйді өңдеу"
+
+#: .\templates\hotels\edit_hotel.html:28 .\templates\hotels\edit_room.html:28
+msgid "Existing images (select to delete):"
+msgstr "Бар суреттер (жою үшін таңдаңыз):"
+
+#: .\templates\hotels\edit_hotel.html:49 .\templates\hotels\edit_room.html:49
+msgid "Upload new images:"
+msgstr "Жаңа суреттерді жүктеу:"
+
+#: .\templates\hotels\edit_hotel.html:55 .\templates\hotels\edit_room.html:55
+msgid "Select Files"
+msgstr "Файлдарды таңдау"
+
+#: .\templates\hotels\edit_hotel.html:63
+msgid "Selected images will be deleted after saving."
+msgstr "Таңдалған суреттер сақтау кезінде жойылады."
+
+#: .\templates\hotels\edit_room.html:10
+msgid "Edit Room"
+msgstr "Бөлмені өңдеу"
+
+#: .\templates\hotels\hotel_list.html:9
+msgid "Our hotels"
+msgstr "Біздің қонақүйлер"
+
+#: .\templates\hotels\hotel_list.html:13
+msgid "New hotel"
+msgstr "Жаңа қонақүй"
+
+#: .\templates\hotels\hotel_list.html:28
+msgid "More info"
+msgstr "Толығырақ"
+
+#: .\templates\hotels\index.html:11
+msgid "Find the perfect hotel for your vacation"
+msgstr "Демалысыңыз үшін мінсіз қонақүйді табыңыз"
+
+#: .\templates\hotels\index.html:12
+msgid "More than 5,000 accommodation options worldwide"
+msgstr "Әлем бойынша 5 000-нан астам орналастыру нұсқалары"
+
+#: .\templates\hotels\index.html:17
+msgid "Search"
+msgstr "Іздеу"
+
+#: .\templates\hotels\index.html:24
+msgid "Easy hotel reservations around the world"
+msgstr "Әлем бойынша қонақүйлерді оңай брондау"
+
+#: .\templates\hotels\index.html:25
+msgid "Choose the perfect hotel in just a few clicks!"
+msgstr "Бірнеше рет басу арқылы мінсіз қонақүйді таңдаңыз!"
+
+#: .\templates\hotels\index.html:33
+msgid "Hotels in Almaty"
+msgstr "Алматыдағы қонақүйлер"
+
+#: .\templates\hotels\index.html:34
+msgid "Comfortable rooms with service"
+msgstr "Қызмет көрсетілетін жайлы бөлмелер"
+
+#: .\templates\hotels\index.html:38
+msgid "from 15,000 ₸/night"
+msgstr "15 000 ₸/түн бастап"
+
+#: .\templates\hotels\index.html:40
+msgid "View hotels"
+msgstr "Қонақүйлерді көру"
+
+#: .\templates\hotels\index.html:47
+msgid "Trending destinations"
+msgstr "Танымал бағыттар"
+
+#: .\templates\hotels\index.html:48
+msgid "Travellers searching for Kazakhstan also booked these"
+msgstr "Қазақстанды іздеген саяхатшылар мыналарды да брондады"
+
+#: .\templates\hotels\index.html:52
+msgid "Almaty"
+msgstr "Алматы"
+
+#: .\templates\hotels\index.html:53 .\templates\hotels\index.html:59
+#: .\templates\hotels\index.html:65
+msgid "Choose a hotel"
+msgstr "Қонақүйді таңдаңыз"
+
+#: .\templates\hotels\index.html:58
+msgid "Astana"
+msgstr "Астана"
+
+#: .\templates\hotels\index.html:64
+msgid "Aktau"
+msgstr "Ақтау"
+
+#: .\templates\hotels\new_booking.html:10
+msgid "Reserve the room"
+msgstr "Бөлмені брондау"
+
+#: .\templates\hotels\new_hotel.html:10
+msgid "Adding a Hotel"
+msgstr "Қонақүй қосу"
+
+#: .\templates\hotels\new_hotel.html:27 .\templates\hotels\new_room.html:27
+msgid "Upload Images"
+msgstr "Суреттерді жүктеу"
+
+#: .\templates\hotels\new_review.html:11
+msgid "Leave a Review"
+msgstr "Пікір қалдыру"
+
+#: .\templates\hotels\new_review.html:17
+msgid "Rating"
+msgstr "Бағалау"
+
+#: .\templates\hotels\new_review.html:24
+msgid "Your Review"
+msgstr "Сіздің пікіріңіз"
+
+#: .\templates\hotels\new_review.html:30
+msgid "Submit Review"
+msgstr "Пікір жіберу"
+
+#: .\templates\hotels\new_room.html:10
+msgid "Adding a Room"
+msgstr "Бөлме қосу"
+
+#: .\templates\hotels\room_details.html:23
+msgid "Price per night"
+msgstr "Түнгі баға"
+
+#: .\templates\hotels\room_details.html:25
+msgid "✓ Available"
+msgstr "✓ Қолжетімді"
+
+#: .\templates\hotels\room_details.html:27
+msgid "✗ Not available"
+msgstr "✗ Қолжетімсіз"
+
+#: .\templates\hotels\room_details.html:34
+msgid "Reserve"
+msgstr "Брондау"

@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block title %}
+Main | HotelBooking
+{% endblock title %}
+
+{% block content %}
+<section class="banner">
+    <div class="container">
+        <h2>{% trans 'Find the perfect hotel for your vacation' %}</h2>
+        <p>{% trans 'More than 5,000 accommodation options worldwide' %}</p>
+        <form class="search-form" action="{% url 'search-results' %}" method="get">
+            <input type="text" name="q" placeholder="Город или отель" required>
+            <input type="date" name="checkin" placeholder="Check in" required>
+            <input type="date" name="checkout" placeholder="Check out" required>
+            <button type="submit" class="btn">{% trans 'Search' %}</button>
+        </form>
+    </div>
+</section>
+
+<main class="container">
+     <section class="intro">
+         <h2>{% trans 'Easy hotel reservations around the world' %}</h2>
+         <p>{% trans 'Choose the perfect hotel in just a few clicks!' %}</p>
+     </section>
+
+    <section class="categories">
+            <div class="category-grid">
+                <div class="category-card" itemscope itemtype="https://schema.org/Hotel">
+                    <img src="{% static 'img/almaty-hotel.jpg' %}" itemprop="image">
+                    <div class="card-content">
+                        <h3 itemprop="name">{% trans 'Hotels in Almaty' %}</h3>
+                        <p itemprop="description">{% trans 'Comfortable rooms with service' %}</p>
+                        <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                            <meta itemprop="priceCurrency" content="KZT">
+                            <meta itemprop="price" content="15000">
+                            <span>{% trans 'from 15,000 ₸/night' %}</span>
+                        </div>
+                        <a href="{% url 'hotel-list' %}" class="btn">{% trans 'View hotels' %}</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <section class="popular">
+        <h2>{% trans 'Trending destinations' %}</h2>
+        <p>{% trans 'Travellers searching for Kazakhstan also booked these' %}</p>
+        <div class="popular-grid">
+            <div class="popular-card">
+                <div class="card-content">
+                    <h3>{% trans 'Almaty' %}</h3>
+                    <a href="hotels.html?city=moscow" class="btn">{% trans 'Choose a hotel' %}</a>
+                </div>
+            </div>
+            <div class="popular-card">
+                <div class="card-content">
+                    <h3>{% trans 'Astana' %}</h3>
+                    <a href="hotels.html?city=spb" class="btn">{% trans 'Choose a hotel' %}</a>
+                </div>
+            </div>
+            <div class="popular-card">
+                <div class="card-content">
+                    <h3>{% trans 'Aktau' %}</h3>
+                    <a href="hotels.html?city=sochi" class="btn">{% trans 'Choose a hotel' %}</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock content %}

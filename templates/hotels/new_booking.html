@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block title %}
+New booking | HotelBooking
+{% endblock title %}
+
+{% block content %}
+<div class="form-container">
+    <h1>{% trans 'Reserve the room' %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="form-group">
+                {{ field.label_tag }}
+                {{ field }}
+                {% if field.errors %}
+                    <div class="error-message">{{ field.errors|striptags }}</div>
+                {% endif %}
+            </div>
+        {% endfor %}
+        <button type="submit" class="btn">{% trans 'Save' %}</button>
+    </form>
+</div>
+{% endblock content %}

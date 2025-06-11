@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block title %}
+Room details | HotelBooking
+{% endblock title %}
+
+{% block content %}
+<div class="room-details-container">
+    <div class="room-details-images">
+        <div class="image-gallery">
+            {% for image in images %}
+                <img src="{{ image.image.url }}" alt="Room image">
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="room-details-content">
+        <p class="room-type">{{ room.room_type }}</p>
+        <p><strong>{% trans 'Capacity' %}:</strong> {{ room.get_capacity_display }}</p>
+        <p><strong>{% trans 'Description' %}:</strong></p>
+        <p>{{ room.description }}</p>
+        <p><strong>{% trans 'Price per night' %}:</strong> {{ room.price_per_night }} KZT</p>
+        {% if room.is_available %}
+            <p class="available">{% trans '✓ Available' %}</p>
+        {% else %}
+            <p class="unavailable">{% trans '✗ Not available' %}</p>
+        {% endif %}
+    </div>
+
+    <div class="room-details-actions">
+        {% if user.is_authenticated %}
+            <a href="{% url 'create-booking' rid=room.pk %}">
+                <button>{% trans 'Reserve' %}</button>
+            </a>
+        {% endif %}
+
+        {% if user.is_authenticated and user.is_staff %}
+            <a href="{% url 'edit-room' rid=room.pk %}">
+                <button>{% trans 'Edit' %}</button>
+            </a>
+            <a href="{% url 'delete-room' rid=room.pk %}">
+                <button>{% trans 'Delete' %}</button>
+            </a>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}

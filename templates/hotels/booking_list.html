@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block title %}
+Booking list | HotelBooking
+{% endblock title %}
+
+{% block content %}
+<div class="bookings-container">
+    <h2 class="bookings-title">{% trans 'Your Bookings' %}</h2>
+    
+    {% if bookings %}
+    <div class="bookings-list">
+        {% for booking in bookings %}
+        <div class="booking-card">
+            <a href="{% url 'booking-details' bid=booking.pk %}" class="booking-link">
+                <div class="booking-header">
+                    <h3 class="hotel-name">{{ booking.room.hotel.name }}</h3>
+                    <span class="booking-status">{% trans 'Confirmed' %}</span>
+                </div>
+                
+                <div class="booking-dates">
+                    <div class="date-group">
+                        <span class="date-label">{% trans 'Check-in:' %}</span>
+                        <span class="date-value">{{ booking.check_in|date:"M d, Y" }}</span>
+                    </div>
+                    <div class="date-group">
+                        <span class="date-label">{% trans 'Check-out:' %}</span>
+                        <span class="date-value">{{ booking.check_out|date:"M d, Y" }}</span>
+                    </div>
+                </div>
+                
+                <div class="booking-meta">
+                    <span class="meta-item">{% trans 'Booking Date:' %} {{ booking.created_at|date:"M d, Y" }}</span>
+                    <span class="meta-item">{% trans 'Room:' %} {{ booking.room.room_type }}</span>
+                </div>
+            </a>
+        </div>
+    {% endfor %}
+    </div>
+    {% else %}
+    <div class="no-bookings">
+        <p>{% trans "You don't have any bookings yet." %}</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock content %}

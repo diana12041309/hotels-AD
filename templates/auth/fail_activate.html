@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block title %}
+Fail activation | HotelBooking
+{% endblock title %}
+
+{% block content %}
+<div class="hotel-description">
+    <h3>{% trans 'The account activation time has expired. Register again.' %}</h3>
+</div>
+{% endblock content %}

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block title %}
+New review | HotelBooking
+{% endblock title %}
+
+{% block content %}
+<div class="review-container">
+    <div class="review-card">
+        <h2 class="review-title">{% trans 'Leave a Review' %}</h2>
+        
+        <form method="post" enctype="multipart/form-data" class="review-form">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <label for="rating" class="form-label">{% trans 'Rating' %}</label>
+                <div class="rating-stars">
+                    {{ form.rating }}
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="comment" class="form-label">{% trans 'Your Review' %}</label>
+                {{ form.comment }}
+            </div>
+            
+            <div class="form-actions">
+                <button type="submit" class="submit-btn">
+                    <span class="btn-text">{% trans 'Submit Review' %}</span>
+                    <span class="btn-icon">→</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}

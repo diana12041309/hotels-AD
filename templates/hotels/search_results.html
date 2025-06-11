@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load hotel_filters static i18n %}
+
+{% block title %}
+Search results | HotelBooking
+{% endblock title %}
+
+{% block content %}
+<div class="search-results-container">
+    <div class="search-filters">
+        <h2>Filter by:</h2>
+        <div class="filter-section">
+            <h3>Price range</h3>
+            <input type="range" min="0" max="500" value="250" class="price-slider">
+            <div class="price-values">
+                <span>$0</span>
+                <span>$250</span>
+                <span>$500+</span>
+            </div>
+        </div>
+        
+        <div class="filter-section">
+            <h3>Star rating</h3>
+            <div class="star-rating-filter">
+                {% for i in "54321" %}
+                <label>
+                    <input type="checkbox" name="stars" value="{{ i }}">
+                    {% for _ in i|make_list %}
+                    ★
+                    {% endfor %}
+                </label>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    
+    <div class="results-list">
+        <div class="search-summary">
+            <h1>Hotels in {{ destination }}</h1>
+            <p>{{ results_count }} properties found</p>
+        </div>
+        
+        {% for hotel in results %}
+        <div class="hotel-card">
+            <div class="hotel-image">
+                {% if hotel.images %}
+                <img src="{{ hotel.images.0.image.url }}" alt="{{ hotel.name }}">
+                {% else %}
+                    <img src="https://via.placeholder.com/400x300?text=No+Image" alt="No image">
+                {% endif %}
+            </div>
+            <div class="hotel-info">
+                <h2>{{ hotel.name }}</h2>
+                <div class="hotel-rating">
+                    {% for i in "12345" %}
+                        {% if forloop.counter <= hotel.star %}
+                            ★
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <p class="hotel-location">{{ hotel.address }}</p>
+            </div>
+            <div class="hotel-pricing">
+                <div class="price-box">
+                    <p class="price">{{ hotel.room.price_per_night }}KZT</p>
+                    <p class="per-night">per night</p>
+                    <p class="taxes">Includes taxes and fees</p>
+                    <a href="{% url 'details-page' hotel.id %}" class="view-deal-btn">View Deal</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

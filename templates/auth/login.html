@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block title %}
+Login | HotelBooking
+{% endblock title %}
+
+{% block content %}
+<div class="form-container">
+    <h2>{% trans 'Login' %}</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="email"></label>
+            {{form.email}}
+            <label for="password"></label>
+            {{form.password}}
+            {% if field.errors %}
+                <div class="error-message">{{ field.errors|striptags }}</div>
+            {% endif %}
+            <button type="submit" class="btn">{% trans 'Login' %}</button>
+        </div>
+    </form>
+    <a href="{% url 'registr' %}">{% trans 'No account? Register' %}</a>
+</div>
+{% endblock content %}

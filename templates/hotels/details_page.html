@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% load hotel_filters static i18n %}
+
+{% block title %}
+Hotel details | HotelBooking
+{% endblock title %}
+
+{% block content %}
+    <div class="hotel-description">
+        <h1>{{hotel.name}}</h1>
+        <h3>{% for i in "12345" %}
+        {% if forloop.counter <= hotel.star %}
+            ★
+        {% endif %}
+        {% endfor %}</h3>
+
+    <section class="room-photo-carousel">
+        <div class="carousel-wrapper">
+            {% if images|length > 2 %}
+                <button class="carousel-btn left">&#10094;</button>
+            {% endif %}
+            
+            <div class="carousel">
+                {% for image in images %}
+                    <div class="category-card">
+                        <img src="{{ image.image.url }}" alt="Room image" class="hotel-main-image">
+                    </div>
+                {% endfor %}
+            </div>
+            
+            {% if images|length > 2 %}
+                <button class="carousel-btn right">&#10095;</button>
+            {% endif %}
+        </div>
+    </section>
+
+        <p>{{hotel.description}}</p>
+
+        <h2>{% trans 'Facilities of' %} {{hotel.name}}:</h2>
+        <div class="amenities">
+            {% for service in services %}
+                <span class="amenity">{{ service }}</span>
+            {% endfor %}
+        </div>
+
+        <p><i class="fi fi-rs-marker"></i><strong>Address: </strong>{{hotel.address}}</p>
+
+        <h2>{% trans 'Available Rooms' %}</h2>
+        {% if rooms %}
+            <table class="room-table">
+                <thead>
+                    <tr>
+                        <th>{% trans 'Room Type' %}</th>
+                        <th>{% trans 'Capacity' %}</th>
+                        <th>{% trans 'Description' %}</th>
+                        <th>{% trans 'Price per Night' %}</th>
+                        <th>{% trans 'Status' %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for room in rooms %}
+                        <tr>
+                            <td>
+                                <a href="{% url 'room-details' rid=room.pk %}">
+                                    {{ room.room_type }}
+                                </a>
+                            </td>
+                            <td>{{ room.capacity }} {% trans 'guests' %}</td>
+                            <td>{{ room.description|cut_after_dot }}</td>
+                            <td>{{ room.price_per_night }} KZT</td>
+                            <td>
+                                {% if room.is_available %}
+                                    <span class="available">{% trans 'Available' %}</span>
+                                {% else %}
+                                    <span class="unavailable">{% trans 'Not available' %}</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>{% trans 'No available rooms at the moment.' %}</p>
+        {% endif %}
+
+        {% if user.is_authenticated and user.is_staff %}
+        <div class="admin-actions">
+            <a href="{% url 'add-room' hid=hotel.pk %}" class="admin-btn">{% trans 'Add room' %}</a>
+        </div>
+        {% endif %}
+    </div>
+
+    {% if user.is_authenticated and user.is_staff %}
+    <div class="admin-actions">
+        <a href="{% url 'edit-hotel' hid=hotel.pk %}" class="admin-btn">{% trans 'Edit' %}</a>
+        <a href="{% url 'delete-hotel' hid=hotel.pk %}" class="admin-btn">{% trans 'Delete' %}</a>
+    </div>
+    {% endif %}
+
+    <div class="reviews">
+        <div class="reviews-header">
+            <h2>{% trans 'Guest Reviews' %}</h2>
+            {% if user.is_authenticated %}
+                <a href="{% url 'add_review' hid=hotel.pk %}" class="write-review-btn">{% trans 'Write a review' %}</a>
+            {% endif %}
+        </div>
+
+        {% for review in reviews %}
+            <div class="review-card">
+                <div class="review-left">
+                    <p class="author">{{ review.author.first_name }} {{ review.author.last_name }}</p>
+                    <p class="comment">{{ review.comment }}</p>
+                    <p class="timestamp">{{ review.time_stamp }}</p>
+                </div>
+                <div class="review-right">
+                    <span class="rating">{{ review.rating }}</span>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock  %}

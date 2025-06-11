@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block title %}
+New hotel | HotelBooking
+{% endblock title %}
+
+{% block content %}
+<div class="form-container">
+    <h2>{% trans 'Adding a Hotel' %}</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="form-group">
+                {{ field.label_tag }}
+                {{ field }}
+                {% if field.errors %}
+                    <div class="error-message">{{ field.errors|striptags }}</div>
+                {% endif %}
+            </div>
+        {% endfor %}
+        <div class="image-upload-section">
+            <label for="image-input" class="upload-btn">
+                <svg viewBox="0 0 24 24" class="upload-icon">
+                    <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20M8,15V13H16V15H8M8,11V9H16V11H8Z"/>
+                </svg>
+                <span>{% trans 'Upload Images' %}</span>
+            </label>
+            <input type="file" name="images" multiple id="image-input" onchange="show_files_name(this)" class="file-input">
+            <div class="file-names" id="file-names-display"></div>
+        </div>
+        <button type="submit" class="btn">{% trans 'Save' %}</button>
+    </form>
+</div>
+{% endblock %}

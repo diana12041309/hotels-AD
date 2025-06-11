@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block title %}
+Edit room | HotelBooking
+{% endblock title %}
+
+{% block content %}
+<div class="form-container">
+    <h2>{% trans 'Edit Room' %}</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {% for field in form %}
+            <div class="form-group">
+                {{ field.label_tag }}
+                {{ field }}
+                {% if field.errors %}
+                    <div class="error-message">{{ field.errors|striptags }}</div>
+                {% endif %}
+            </div>
+        {% endfor %}
+
+<div class="image-management-section">
+    <!-- Существующие изображения с чекбоксами для удаления -->
+    {% if room_att %}
+    <div class="existing-images-section">
+        <label class="section-label">{% trans 'Existing images (select to delete):' %}</label>
+        <div class="image-grid">
+            {% for img in room_att %}
+            <div class="image-checkbox-block">
+                <label class="image-checkbox-label">
+                    <input type="checkbox" name="attachments" value="{{ img.pk }}" class="image-checkbox">
+                    <img src="{{ img.image.url }}" alt="Hotel image" class="image-preview">
+                    <span class="checkbox-overlay">
+                        <svg viewBox="0 0 24 24" class="check-icon">
+                            <path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/>
+                        </svg>
+                    </span>
+                </label>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Загрузка новых изображений -->
+    <div class="upload-section">
+        <label class="section-label">{% trans 'Upload new images:' %}</label>
+        <div class="upload-control">
+            <label for="image-input" class="upload-btn">
+                <svg viewBox="0 0 24 24" class="upload-icon">
+                    <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20M8,15V13H16V15H8M8,11V9H16V11H8Z"/>
+                </svg>
+                <span>{% trans 'Select Files' %}</span>
+            </label>
+            <input type="file" name="images" multiple id="image-input" onchange="show_files_name(this)" class="file-input">
+            <div class="file-names" id="file-names-display"></div>
+        </div>
+    </div>
+</div>
+        <button type="submit" class="btn">{% trans 'Save' %}</button>
+    </form>
+</div>
+{% endblock %}

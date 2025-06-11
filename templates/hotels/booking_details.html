@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block title %}
+Booking details | HotelBooking
+{% endblock title %}
+
+{% block content %}
+<div class="booking-container">
+    <div class="booking-card">
+        <h2 class="booking-title">{% trans 'Booking Details' %}</h2>
+        
+        <div class="booking-info">
+            <div class="info-item">
+                <span class="info-label">{% trans 'Hotel:' %}</span>
+                <span class="info-value">{{ booking.room.hotel.name }}</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">{% trans 'Check-in:' %}</span>
+                <span class="info-value">{{ booking.check_in }}</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">{% trans 'Room Type:' %}</span>
+                <span class="info-value">{{ booking.room.room_type }}</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">{% trans 'Check-out:' %}</span>
+                <span class="info-value">{{ booking.check_out }}</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">{% trans 'Guests:' %}</span>
+                <span class="info-value">{{ booking.guests }}</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">{% trans 'Booking Date:' %}</span>
+                <span class="info-value">{{ booking.created_at }}</span>
+            </div>
+        </div>
+
+        {% if user.is_authenticated and user.id == booking.user.id %}
+        <div class="booking-actions">
+            <a href="{% url 'edit-booking' bid=booking.pk %}" class="btn btn-edit">
+                {% trans 'Edit' %}
+            </a>
+            <a href="{% url 'delete-booking' bid=booking.pk %}" class="btn btn-delete">
+                {% trans 'Delete' %}
+            </a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}
